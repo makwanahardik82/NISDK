@@ -98,7 +98,7 @@ import Foundation
 }
 
 extension PaymentResponse {
-    internal func toPartialAuthArgs(accessToken: String?) throws -> PartialAuthArgs {
+     func toPartialAuthArgs(accessToken: String?) throws -> PartialAuthArgs {
         guard let partialAmount = authResponse?.partialAmount else {
             throw NSError(domain: "argument partialAmount missing", code: 99)
         }

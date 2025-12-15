@@ -32,6 +32,6 @@ struct AaniTimerScreen: View {
     }
 }
 
-#Preview {
-    AaniTimerScreen(amountFormatted: "3000 AED", timeString: "03:12")
-}
+//#Preview {
+//    AaniTimerScreen(amountFormatted: "3000 AED", timeString: "03:12")
+//}

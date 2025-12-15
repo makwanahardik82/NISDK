@@ -255,7 +255,8 @@ class SavedCardViewController: UIViewController, UITextFieldDelegate {
 
         payButton.addTarget(self, action: #selector(payButtonAction), for: .touchUpInside)
         let payButtonTitle: String = if NISdk.sharedInstance.shouldShowOrderAmount {
-            String.localizedStringWithFormat("Pay Button Title".localized, orderAmount.getFormattedAmount())
+          //  String.localizedStringWithFormat("Pay Button Title".localized, orderAmount.getFormattedAmount())
+            "Pay " + orderAmount.getFormattedAmount()
         } else {
             "Pay".localized
         }

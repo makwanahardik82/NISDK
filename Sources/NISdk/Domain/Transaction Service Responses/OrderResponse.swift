@@ -123,7 +123,7 @@ import Foundation
 }
 
 extension OrderResponse {
-    internal func toPartialAuthArgs(accessToken: String?) throws -> PartialAuthArgs {
+    func toPartialAuthArgs(accessToken: String?) throws -> PartialAuthArgs {
         guard let payment = embeddedData?.payment?.first else {
             throw NSError(domain: "argument payments missing", code: 99)
         }

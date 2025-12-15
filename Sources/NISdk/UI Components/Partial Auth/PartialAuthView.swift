@@ -90,12 +90,12 @@ struct BorderButtonStyle: ButtonStyle {
     }
 }
 
-#Preview {
-    PartialAuthView(
-        issuingOrg: "HDBC",
-        partialAmount: "100 AED",
-        amount: "1000 AED",
-        onAccept: {},
-        onDecline: {}
-    )
-}
+//#Preview {
+//    PartialAuthView(
+//        issuingOrg: "HDBC",
+//        partialAmount: "100 AED",
+//        amount: "1000 AED",
+//        onAccept: {},
+//        onDecline: {}
+//    )
+//}

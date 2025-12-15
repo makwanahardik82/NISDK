@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import PassKit
 
-private class NISdkBundleLocator {}
+public class NISdkBundleLocator {}
 
 @objc public final class NISdk: NSObject {
     @objc public static let sharedInstance = NISdk()
@@ -22,7 +22,7 @@ private class NISdkBundleLocator {}
     
     public var version: String = "6.0.0"
     
-    private override init() {
+    public override init() {
         super.init()
         let bundle = getBundle()
         UIFont.RegisterFont(withFilenameString: "OCRA.otf", in: bundle)
