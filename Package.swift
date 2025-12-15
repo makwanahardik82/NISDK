@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "NISdk",
+    name: "NISDK",
     defaultLocalization: "en",
     platforms: [
         .iOS(.v15)
