@@ -19,7 +19,7 @@ class PaymentViewController: UIViewController {
     private weak var shownViewController: UIViewController?
     
     private let transactionService = TransactionServiceAdapter()
-    private weak var cardPaymentDelegate: CardPaymentDelegate?
+    private var cardPaymentDelegate: CardPaymentDelegate?
     private let order: OrderResponse
     private var paymentResponse: PaymentResponse?
     private var paymentToken: String?
@@ -134,7 +134,7 @@ class PaymentViewController: UIViewController {
     }
     
     private func authorizePayment() {
-        cardPaymentDelegate?.authorizationDidBegin?()
+        cardPaymentDelegate?.authorizationDidBegin()
         self.transition(to: .authorizing)
         if let authCode = order.getAuthCode(),
            let paymentLink = order.orderLinks?.paymentAuthorizationLink {
@@ -146,8 +146,8 @@ class PaymentViewController: UIViewController {
                     self?.accessToken = accessToken
                     // 2. Show card payment screen after authorization (payment token is received)
                     DispatchQueue.main.async { // Use the main thread to update any UI
-                        self?.cardPaymentDelegate?.authorizationDidComplete?(with: .AuthSuccess)
-                        self?.cardPaymentDelegate?.paymentDidBegin?()
+                        self?.cardPaymentDelegate?.authorizationDidComplete(with: .AuthSuccess)
+                        self?.cardPaymentDelegate?.paymentDidBegin()
                         self?.initiatePaymentForm()
                     }
                 } else {
@@ -402,12 +402,12 @@ class PaymentViewController: UIViewController {
                 return
             }
             if(paymentResponse.state == "AWAIT_3DS") {
-                self.cardPaymentDelegate?.threeDSChallengeDidBegin?()
+                self.cardPaymentDelegate?.threeDSChallengeDidBegin()
                 self.initiateThreeDS(with: paymentResponse)
                 return
             }
             if (paymentResponse.state == "AWAITING_PARTIAL_AUTH_APPROVAL") {
-                self.cardPaymentDelegate?.partialAuthBegin?()
+                self.cardPaymentDelegate?.partialAuthBegin()
                 do {
                     let partialAuthArgs = try paymentResponse.toPartialAuthArgs(accessToken: self.accessToken)
                     self.initiatePartialAuth(partialAuthArgs: partialAuthArgs)
@@ -519,11 +519,11 @@ class PaymentViewController: UIViewController {
                                                             and authStatus: AuthorizationStatus?) {
         DispatchQueue.main.async { // Use the main thread to update any UI
             if let threeDSStatus = threeDSStatus {
-                self.cardPaymentDelegate?.threeDSChallengeDidComplete?(with: threeDSStatus)
+                self.cardPaymentDelegate?.threeDSChallengeDidComplete(with: threeDSStatus)
             }
             
             if let authStatus = authStatus  {
-                self.cardPaymentDelegate?.authorizationDidComplete?(with: authStatus)
+                self.cardPaymentDelegate?.authorizationDidComplete(with: authStatus)
             }
             
             self.closePaymentViewController(completion: {

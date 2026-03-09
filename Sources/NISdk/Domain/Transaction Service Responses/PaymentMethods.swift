@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc public class PaymentMethods: NSObject, Codable {
+ public class PaymentMethods: NSObject, Codable {
     public var card: [CardProvider]?
     public var wallet: [WalletProvider]?
     

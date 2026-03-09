@@ -9,7 +9,7 @@
 import Foundation
 import PassKit
 
-@objc final class TransactionServiceAdapter: NSObject, TransactionService {
+ final class TransactionServiceAdapter: NSObject, TransactionService {
     
     // Use this to fetch token
     func authorizePayment(for authCode: String,

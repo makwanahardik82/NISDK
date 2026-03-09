@@ -7,6 +7,6 @@
 
 import Foundation
 
-@objc public protocol AaniPaymentDelegate {
-    @objc func aaniPaymentCompleted(with status: AaniPaymentStatus)
+public protocol AaniPaymentDelegate {
+     func aaniPaymentCompleted(with status: AaniPaymentStatus)
 }

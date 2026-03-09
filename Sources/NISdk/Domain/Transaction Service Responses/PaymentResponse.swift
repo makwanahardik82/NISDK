@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc public class PaymentResponse: NSObject, Codable {
+ public class PaymentResponse: NSObject, Codable {
     public let _id: String?
     public let state: String
     public let reference: String
@@ -69,7 +69,7 @@ import Foundation
         case paymentMethod
     }
     
-    @objc public static func decodeFrom(data: Data) throws -> PaymentResponse {
+     public static func decodeFrom(data: Data) throws -> PaymentResponse {
         do {
             let paymentResponse = try JSONDecoder().decode(PaymentResponse.self, from: data)
             return paymentResponse

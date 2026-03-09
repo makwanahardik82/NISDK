@@ -11,7 +11,7 @@ import UIKit
 
 class NameInputVC: UIViewController, UITextFieldDelegate {
     let nameTextField: UITextField = UITextField()
-    @objc let onChangeName: onChangeTextClosure
+    let onChangeName: onChangeTextClosure
     
     init(onChangeText: @escaping onChangeTextClosure) {
         self.onChangeName = onChangeText

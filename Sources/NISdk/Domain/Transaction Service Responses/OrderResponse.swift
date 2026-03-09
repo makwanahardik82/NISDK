@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc public class OrderResponse: NSObject, Codable {
+public class OrderResponse: NSObject, Codable {
     public var _id: String?
     public var type: String?
     public var action: String?
@@ -63,7 +63,7 @@ import Foundation
         return nil
     }
     
-    @objc public static func decodeFrom(data: Data) throws -> OrderResponse {
+     public static func decodeFrom(data: Data) throws -> OrderResponse {
         do {
             let orderResponse = try JSONDecoder().decode(OrderResponse.self, from: data)
             return orderResponse

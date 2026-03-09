@@ -14,8 +14,8 @@ class ExpiryInputVC: UIViewController, UITextFieldDelegate {
     let yearTextField: UITextField = UITextField()
     let expiryCharacterLimit = 2
     
-    @objc let onChangeMonth: onChangeTextClosure
-    @objc let onChangeYear: onChangeTextClosure
+    let onChangeMonth: onChangeTextClosure
+    let onChangeYear: onChangeTextClosure
     
     init(onChangeMonth: @escaping onChangeTextClosure, onChangeYear: @escaping onChangeTextClosure) {
         self.onChangeMonth = onChangeMonth

@@ -12,8 +12,8 @@ import PassKit
 
 public class NISdkBundleLocator {}
 
-@objc public final class NISdk: NSObject {
-    @objc public static let sharedInstance = NISdk()
+public final class NISdk: NSObject {
+    public static let sharedInstance = NISdk()
     
     var niSdkColors = NISdkColors()
     var sdkLanguage = "en"
@@ -50,11 +50,11 @@ public class NISdkBundleLocator {}
         return sdkResourceBundle
     }
     
-    @objc public func deviceSupportsApplePay() -> Bool {
+    public func deviceSupportsApplePay() -> Bool {
         return PKPaymentAuthorizationViewController.canMakePayments()
     }
     
-    @objc public func setSDKLanguage(language: String) {
+    public func setSDKLanguage(language: String) {
         sdkLanguage = language
         let direction = Locale.characterDirection(forLanguage: language)
         if (direction == .rightToLeft) {
@@ -64,11 +64,11 @@ public class NISdkBundleLocator {}
         }
     }
     
-    @objc public func setSDKColors(sdkColors: NISdkColors) {
+    public func setSDKColors(sdkColors: NISdkColors) {
         self.niSdkColors = sdkColors
     }
     
-    @objc public func showCardPaymentViewWith(cardPaymentDelegate: CardPaymentDelegate,
+    public func showCardPaymentViewWith(cardPaymentDelegate: CardPaymentDelegate,
                                               overParent parentViewController: UIViewController,
                                               for order: OrderResponse) {
         let paymentViewController = PaymentViewController(order: order, cardPaymentDelegate: cardPaymentDelegate,
@@ -85,7 +85,7 @@ public class NISdkBundleLocator {}
         }
     }
     
-    @objc public func launchSavedCardPayment(cardPaymentDelegate: CardPaymentDelegate,
+     public func launchSavedCardPayment(cardPaymentDelegate: CardPaymentDelegate,
                                              overParent parentViewController: UIViewController,
                                              for order: OrderResponse,
                                              with cvv: String?) {
@@ -106,7 +106,7 @@ public class NISdkBundleLocator {}
         }
     }
     
-    @objc public func launchSavedCardPayment(cardPaymentDelegate: CardPaymentDelegate,
+    public func launchSavedCardPayment(cardPaymentDelegate: CardPaymentDelegate,
                                              overParent parentViewController: UIViewController,
                                              for order: OrderResponse) {
         let paymentViewController = PaymentViewController(order: order,
@@ -150,7 +150,7 @@ public class NISdkBundleLocator {}
         }
     }
     
-    @objc public func initiateApplePayWith(applePayDelegate: ApplePayDelegate?,
+    public func initiateApplePayWith(applePayDelegate: ApplePayDelegate?,
                                            cardPaymentDelegate: CardPaymentDelegate,
                                            overParent parentViewController: UIViewController,
                                            for order: OrderResponse,
@@ -167,7 +167,7 @@ public class NISdkBundleLocator {}
         parentViewController.present(paymentViewController, animated: true)
     }
     
-    @objc public func executeThreeDSTwo(cardPaymentDelegate: CardPaymentDelegate,
+    public func executeThreeDSTwo(cardPaymentDelegate: CardPaymentDelegate,
                                         overParent parentViewController: UIViewController,
                                         for paymentResponse: PaymentResponse) {
         let paymentViewController = PaymentViewController(paymentResponse: paymentResponse, cardPaymentDelegate: cardPaymentDelegate)

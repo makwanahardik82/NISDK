@@ -12,7 +12,7 @@ import UIKit
 class PanInputVC: UIViewController, UITextFieldDelegate {
     let panTextField: UITextField = UITextField()
     let panCharacterLimit = 16
-    @objc let onChangeText: onChangeTextClosure
+    let onChangeText: onChangeTextClosure
     
     init(onChangeText: @escaping onChangeTextClosure) {
         self.onChangeText = onChangeText

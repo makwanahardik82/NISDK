@@ -6,7 +6,7 @@ enum AaniViewType {
     case timer
 }
 
-@objc public enum AaniPaymentStatus: Int, RawRepresentable {
+public enum AaniPaymentStatus: Int, RawRepresentable {
     case success
     case failed
     case cancelled

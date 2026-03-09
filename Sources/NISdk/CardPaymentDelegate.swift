@@ -8,25 +8,25 @@
 
 import Foundation
 
-@objc public protocol CardPaymentDelegate {
+ public protocol CardPaymentDelegate {
     
     // authorisation event cycles
-    @objc optional func authorizationWillBegin()
-    @objc optional func authorizationDidBegin()
-    @objc optional func authorizationDidComplete(with status: AuthorizationStatus)
+     func authorizationWillBegin()
+     func authorizationDidBegin()
+    func authorizationDidComplete(with status: AuthorizationStatus)
     
     // payment event cycles
-    @objc optional func paymentDidBegin()
-    @objc func paymentDidComplete(with status: PaymentStatus)
+     func paymentDidBegin()
+     func paymentDidComplete(with status: PaymentStatus)
     
     // 3ds challenge cycles
-    @objc optional func threeDSChallengeDidBegin()
-    @objc optional func threeDSChallengeDidComplete(with status: ThreeDSStatus)
-    @objc optional func partialAuthBegin()
+     func threeDSChallengeDidBegin()
+     func threeDSChallengeDidComplete(with status: ThreeDSStatus)
+     func partialAuthBegin()
 }
 
 public typealias RawValue = String
-@objc public enum AuthorizationStatus: Int, RawRepresentable  {
+ public enum AuthorizationStatus: Int, RawRepresentable  {
     case AuthSuccess
     case AuthFailed
     
@@ -51,7 +51,7 @@ public typealias RawValue = String
     }
 }
 
-@objc public enum PaymentStatus: Int, RawRepresentable {
+public enum PaymentStatus: Int, RawRepresentable {
     case PaymentSuccess
     case PaymentFailed
     case PaymentCancelled
@@ -106,7 +106,7 @@ public typealias RawValue = String
     }
 }
 
-@objc public enum ThreeDSStatus: Int, RawRepresentable {
+public enum ThreeDSStatus: Int, RawRepresentable {
     case ThreeDSSuccess
     case ThreeDSFailed
     

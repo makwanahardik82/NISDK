@@ -11,7 +11,7 @@ import UIKit
 
 class CvvInputVC: UIViewController, UITextFieldDelegate {
     let cvvTextField: UITextField = UITextField()
-    @objc let onChangeCvv: onChangeTextClosure
+    let onChangeCvv: onChangeTextClosure
     let cvv: Cvv
     
     init(onChangeText: @escaping onChangeTextClosure, cvv: Cvv) {
