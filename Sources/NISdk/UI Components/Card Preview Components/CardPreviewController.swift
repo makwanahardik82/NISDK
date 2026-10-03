@@ -170,6 +170,7 @@ class CardPreviewController: UIViewController {
         cardHolderNameLabel.adjustsFontSizeToFitWidth = false;
         cardHolderNameLabel.lineBreakMode = .byTruncatingTail;
         containerView.addSubview(cardHolderNameLabel)
+        cardHolderNameLabel.translatesAutoresizingMaskIntoConstraints = false
         cardHolderNameLabel.anchor(top: containerView.topAnchor,
                          leading: containerView.leadingAnchor,
                          bottom: containerView.bottomAnchor,
