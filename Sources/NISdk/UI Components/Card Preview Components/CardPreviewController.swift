@@ -169,6 +169,24 @@ class CardPreviewController: UIViewController {
         cardHolderNameLabel.text = defaultNameLabelText
         cardHolderNameLabel.adjustsFontSizeToFitWidth = false;
         cardHolderNameLabel.lineBreakMode = .byTruncatingTail;
+        
+        cardHolderNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(cardHolderNameLabel)
+        
+        NSLayoutConstraint.activate([
+            cardHolderNameLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
+            cardHolderNameLabel.leadingAnchor.constraint(
+                equalTo: containerView.leadingAnchor,
+                constant: 10
+            ),
+            cardHolderNameLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            cardHolderNameLabel.widthAnchor.constraint(
+                equalTo: containerView.widthAnchor,
+                multiplier: 0.45
+            )
+        ])
+        
+        /*
         containerView.addSubview(cardHolderNameLabel)
         cardHolderNameLabel.translatesAutoresizingMaskIntoConstraints = false
         cardHolderNameLabel.anchor(top: containerView.topAnchor,
@@ -177,6 +195,8 @@ class CardPreviewController: UIViewController {
                          trailing: nil,
                          padding: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10),
                          size: CGSize(width: UIScreen().deviceScreenWidth * 0.45, height: 0))
+       */
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didChangeCardHolderName(_:)),
                                                name: .didChangeCardHolderName, object: nil)
